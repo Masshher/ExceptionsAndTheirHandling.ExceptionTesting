@@ -3,15 +3,6 @@ package ru.netology;
 public class ShopRepository {
     private Product[] products = new Product[0];
 
-    public Product findById(int id) {
-        for (Product product : products) {
-            if (product.getId() == id) {
-                return product;
-            }
-        }
-        return null;
-    }
-
     private Product[] addToArray(Product[] current, Product product) {
         Product[] tmp = new Product[current.length + 1];
         for (int i = 0; i < current.length; i++) {
@@ -42,6 +33,15 @@ public class ShopRepository {
             }
         }
         products = tmp;
+    }
+    
+    public Product findById(int id) {
+        for (Product product : products) {
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        return null;
     }
 
 }
